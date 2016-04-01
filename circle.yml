@@ -17,5 +17,5 @@ test:
 deployment:
     master:
         branch: master
-            commands:
-                - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino bin
+        commands:
+            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino bin
