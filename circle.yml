@@ -17,8 +17,8 @@ deployment:
     master:
         branch: master
         commands:
-            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino bin/*
+            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino bin/
     develop:
         branch: develop
         commands:
-            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino/dev bin/*
+            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino/dev bin/
