@@ -1,6 +1,8 @@
 -debug 
 -D fdb 
 
+-lib munit
+
 --each 
 
 -cp src 

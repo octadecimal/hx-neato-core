@@ -9,9 +9,9 @@ machine:
     - curl -O http://octadecimal.com/scripts/install-haxe.sh
     - sudo bash install-haxe.sh -y
 
-#test:
-  #override:
-    #- haxe build.hxml
+test:
+  override:
+    - haxe runtests-ci.hxml
 
 deployment:
     master:

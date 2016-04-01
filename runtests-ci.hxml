@@ -1,0 +1,4 @@
+-cmd haxelib install hamcrest --always || true
+-cmd haxelib install munit --always || true
+
+-cmd haxelib run munit test -js -coverage -result-exit-code -kill-browser
