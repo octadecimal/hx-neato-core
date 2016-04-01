@@ -12,7 +12,6 @@ machine:
 test:
   override:
     - haxe build.hxml
-    - neko test.n
 
 deployment:
     master:
