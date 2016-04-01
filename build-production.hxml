@@ -1,0 +1,12 @@
+-debug 
+-D fdb 
+
+--each 
+
+-cp src 
+
+-swf bin/production/hx-neato-core.swf 
+-swf-header 800:600:30:FFFFFF 
+-swf-version 12.0 
+
+-main neato.template.Main

@@ -9,16 +9,18 @@ machine:
     - curl -O http://octadecimal.com/scripts/install-haxe.sh
     - sudo bash install-haxe.sh -y
 
-test:
-  override:
-    - haxe build.hxml
+#test:
+  #override:
+    #- haxe build.hxml
 
 deployment:
     master:
         branch: master
         commands:
-            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino bin
+            - haxe build-production.hxml
+            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino bin/proudction
     develop:
         branch: develop
         commands:
-            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino/dev bin
+            - haxe build.hxml
+            - ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" $FTP_HOST /neatocasino bin/develop
