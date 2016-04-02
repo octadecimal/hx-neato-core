@@ -3,7 +3,7 @@
 
 -lib munit
 
---each 
+#--each 
 
 -cp src 
 
