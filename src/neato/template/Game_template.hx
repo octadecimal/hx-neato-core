@@ -5,6 +5,7 @@ import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.Lib;
 import flash.text.TextField;
+import flash.events.Event;
 #end
 
 /**
@@ -12,22 +13,30 @@ import flash.text.TextField;
  */
 class Game_template
 {
+	#if flash
+	private var _tf:TextField;
+	
 	/**
 	 * Constructor.
 	 */
 	public function new() 
 	{
-		#if flash
 		var stage = Lib.current.stage;
 		stage.scaleMode = StageScaleMode.NO_SCALE;
 		stage.align = StageAlign.TOP_LEFT;
+		stage.addEventListener(Event.RESIZE, draw);
 		// Entry point
 		
-		var tf:TextField = new TextField();
-		tf.text = "neato!";
+		_tf = new TextField();
+		_tf.text = "neato!";
 		
-		stage.addChild(tf);
-		#end
+		stage.addChild(_tf);
+	}
+	
+	private function draw(e:Event):Void 
+	{
+		var stage = Lib.current.stage;
+		_tf.text = stage.stageWidth + " x " + stage.stageHeight;
 	}
 	
 	/**
@@ -37,4 +46,5 @@ class Game_template
 	{
 		
 	}
+	#end
 }
