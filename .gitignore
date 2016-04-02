@@ -1,5 +1,4 @@
 bin/
 *.hxproj
-.munit
 .temp/
 munit/
