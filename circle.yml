@@ -7,6 +7,7 @@ machine:
     #- sudo apt-get install curl
     - sudo apt-get install ncftp
     #- curl -O http://octadecimal.com/scripts/install-haxe.sh
+    - ls -al
     - sudo bash scripts/install-haxe.sh -y
 
 test:
