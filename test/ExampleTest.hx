@@ -44,27 +44,5 @@ class ExampleTest
 	{
 		Assert.isTrue(true);
 	}
-	
-	@AsyncTest
-	public function testAsyncExample(factory:AsyncFactory):Void
-	{
-		var handler:Dynamic = factory.createHandler(this, onTestAsyncExampleComplete, 300);
-		timer = Timer.delay(handler, 200);
-	}
-	
-	private function onTestAsyncExampleComplete():Void
-	{
-		Assert.isFalse(false);
-	}
-	
-	
-	/**
-	* test that only runs when compiled with the -D testDebug flag
-	*/
-	@TestDebug
-	public function testExampleThatOnlyRunsWithDebugFlag():Void
-	{
-		Assert.isTrue(true);
-	}
 
 }
