@@ -1,4 +1,5 @@
 bin/
 *.hxproj
 .temp/
-munit/
+munit/build
+munit/report
