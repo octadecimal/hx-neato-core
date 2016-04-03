@@ -23,4 +23,11 @@ class GameModel implements IGameModel
 	{
 		trace("Destroyed.");
 	}
+	
+	
+	
+	// ACCESSORS
+	//============================================================================================================
+	
+	public var gameSize(default, default):String;
 }

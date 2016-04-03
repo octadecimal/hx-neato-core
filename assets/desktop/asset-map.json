@@ -1,9 +1,4 @@
 {
-	"default": {
-		"CommonTestFile.txt": "assets/common/CommonTestFile.txt",
-		"dom.xml": "assets/desktop/dom.xml",
-		"settings.json": "assets/desktop/settings.json"
-	},
 	"base": {
 		"symbol-p1.png": "assets/desktop/contexts/base/symbol-p1.png",
 		"background-base.png": "assets/desktop/contexts/base/background-base.png"
@@ -15,5 +10,9 @@
 	},
 	"bonus": {
 		"background-bonus.png": "assets/desktop/contexts/bonus/background-bonus.png"
+	},
+	"default": {
+		"dom.xml": "assets/desktop/dom.xml",
+		"settings.json": "assets/desktop/settings.json"
 	}
 }
