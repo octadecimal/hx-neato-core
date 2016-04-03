@@ -4,7 +4,8 @@
 
 ## CLEAN
 --next
--cmd neko scripts/html-template.n
+-cmd neko scripts/build-asset-maps.n -v
+-cmd neko scripts/copy-html-template.n
 
 ## SWF
 --next
