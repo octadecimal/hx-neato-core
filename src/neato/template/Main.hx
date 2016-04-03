@@ -8,9 +8,7 @@ class Main
 {
 	static function main() 
 	{
-		#if flash
-		new Game_template();
-		#end
+		
 	}
 	
 }

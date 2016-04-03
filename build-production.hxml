@@ -1,14 +1,12 @@
 -debug 
 -D fdb 
 
--lib munit
+-cp src 
 
 --each 
 
--cp src 
-
 -swf bin/production/hx-neato-core.swf 
--swf-header 800:600:30:FFFFFF 
+-swf-header 1024:768:60:000000 
 -swf-version 12.0 
 
--main neato.template.Main
+-main neato.template.GameEntry_template
