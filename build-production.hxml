@@ -4,17 +4,25 @@
 
 ## CLEAN
 --next
+-cmd haxelib install pixijs
+-cmd haxelib install actuate
+-cmd haxelib install msignal
 -cmd neko scripts/build-asset-maps.n -v
 -cmd neko scripts/copy-html-template.n
 
 ## SWF
---next
--main neato.template.GameEntry_template
--swf bin/production/hx-neato-core.swf 
--swf-header 1024:768:60:000000 
--swf-version 12.0 
+#--next
+#-main neato.template.GameEntry_template
+#-swf bin/production/hx-neato-core.swf 
+#-swf-header 1024:768:60:000000 
+#-swf-version 12.0 
 
 ## JS
 --next
+--macro include('neato.game.view')
+--macro include('neato.poker.view')
+-lib pixijs
+-lib actuate
+-lib msignal
 -main neato.template.GameEntry_template
 -js bin/production/hx-neato-core.js

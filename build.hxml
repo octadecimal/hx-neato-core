@@ -1,3 +1,6 @@
+## LIBS
+-cmd haxelib install msignal
+
 ## COMMON
 -debug 
 -D fdb 
@@ -7,6 +10,9 @@
 
 ## PRE-PROCESS
 --next
+-cmd haxelib install pixijs
+-cmd haxelib install actuate
+-cmd haxelib install msignal
 -cmd neko scripts/build-asset-maps.n -v
 -cmd neko scripts/copy-html-template.n
 
@@ -16,6 +22,7 @@
 --macro include('neato.poker.view')
 -lib pixijs
 -lib actuate
+-lib msignal
 -main neato.template.GameEntry_template
 -js bin/develop/hx-neato-core.js
 
