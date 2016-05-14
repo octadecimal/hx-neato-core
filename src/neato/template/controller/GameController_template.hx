@@ -99,6 +99,6 @@ class GameController_template extends GameController
 	
 	override function getIntegrationController():IIntegrationController 
 	{
-		return new IntegrationController(new Integrator("http://www.octadecimal.com/neatocasino/service/index.php"));
+		return new IntegrationController(new Integrator("https://www.octadecimal.com/neatocasino/service/index.php"));
 	}
 }
