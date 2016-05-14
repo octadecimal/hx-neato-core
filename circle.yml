@@ -6,6 +6,9 @@ machine:
   pre:
     - sudo bash hx-neato-core/scripts/install-haxe.sh -y
     - sudo apt-get install ncftp
+	- haxelib install msignal --always || true
+	- haxelib install actuate --always || true
+	- haxelib install pixijs --always || true
 
 test:
   override:
