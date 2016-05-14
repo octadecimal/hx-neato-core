@@ -1,40 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<title>hx-neato-core</title>
-	<meta name="description" content="" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Haxe JS</title></head>
+
+	<script type="text/javascript" src="lib/custom-log.js"></script>
+	<script type="text/javascript" src="lib/pixi.min.js"></script>
+	<script type="text/javascript" src="lib/perf.min.js"></script>
+	<script type="text/javascript" src="lib/howler.min.js"></script>
 	
-	<script src="js/swfobject.js"></script>
-	<script>
-		var flashvars = {
-		};
-		var params = {
-			menu: "false",
-			scale: "noScale",
-			allowFullscreen: "true",
-			allowScriptAccess: "always",
-			bgcolor: "",
-			wmode: "direct" // can cause issues with FP settings & webcam
-		};
-		var attributes = {
-			id:"hx-neato-core"
-		};
-		swfobject.embedSWF(
-			"hx-neato-core.swf", 
-			"altContent", "100%", "100%", "10.0.0", 
-			"expressInstall.swf", 
-			flashvars, params, attributes);
-	</script>
 	<style>
-		html, body { height:100%; overflow:hidden; }
-		body { margin:0; }
+		html,body { margin: 0; padding: 0; width: 100%; height: 100%; }
 	</style>
 </head>
 <body>
-	<div id="altContent">
-		<h1>hx-neato-core</h1>
-		<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
+	<script type="text/javascript" src="hx-neato-core.js"></script>
+	<div id="game">
+		
 	</div>
 </body>
 </html>
