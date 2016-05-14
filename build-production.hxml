@@ -4,9 +4,10 @@
 
 ## CLEAN
 --next
--cmd haxelib install pixijs
--cmd haxelib install actuate
--cmd haxelib install msignal
+-cmd haxelib install actuate --always || true
+-cmd haxelib install msignal --always || true
+-cmd haxelib install mloader --always || true
+-cmd haxelib install pixijs --always || true
 -cmd neko scripts/build-asset-maps.n -v
 -cmd neko scripts/copy-html-template.n
 
