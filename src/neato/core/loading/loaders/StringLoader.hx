@@ -1,4 +1,4 @@
-package neato.core.loading;
+package neato.core.loading.loaders;
 
 import haxe.Http;
 import msignal.Signal.Signal2;

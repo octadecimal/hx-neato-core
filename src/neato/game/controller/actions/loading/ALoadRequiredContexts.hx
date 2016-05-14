@@ -8,8 +8,7 @@ class ALoadRequiredContexts extends Action
 {
 	override public function execute():Void 
 	{
+		_game.controller.loading.sigComplete.addOnce(complete);
 		_game.controller.loading.loadRequiredContexts();
-		
-		complete();
 	}
 }

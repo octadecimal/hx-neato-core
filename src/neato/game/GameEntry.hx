@@ -4,11 +4,13 @@ import neato.api.game.IGame;
 import neato.api.game.IGameController;
 import neato.api.game.IGameEntry;
 import neato.api.game.IGameModel;
+import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
 import neato.api.game.extensions.IExtensionManager;
 import neato.game.controller.GameController;
 import neato.game.extensions.ExtensionManager;
 import neato.game.model.GameModel;
+import neato.game.view.GameSkin;
 import neato.game.view.GameView;
 
 /**
@@ -61,14 +63,15 @@ class GameEntry implements IGameEntry
 		// Create game components
 		var model:IGameModel = getGameModel();
 		var view:IGameView = getGameView();
-		var controller:IGameController = getGameController();
+		var skin:IGameSkin = getGameSkin();
+		var controller:IGameController = getGameController(model, view);
 		var extensions:IExtensionManager = getExtensionManager();
 		
 		// Register extensions
 		registerExtensions(extensions);
 		
 		// Create and return game
-		return new Game(model, view, controller, extensions);
+		return new Game(model, view, skin, controller, extensions);
 	}
 	
 	/**
@@ -90,12 +93,21 @@ class GameEntry implements IGameEntry
 	}
 	
 	/**
+	 * Creates the game skin instance, can be overridden to provide a different IGameSkin to the game.
+	 * @return
+	 */
+	public function getGameSkin():IGameSkin
+	{
+		return new GameSkin();
+	}
+	
+	/**
 	 * Creates the game controller instance, can be overridden to provide a different IGameController to the game.
 	 * @return
 	 */
-	public function getGameController():IGameController
+	public function getGameController(model:IGameModel, view:IGameView):IGameController
 	{
-		return new GameController();
+		return new GameController(model, view);
 	}
 	
 	/**

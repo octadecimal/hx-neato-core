@@ -20,6 +20,11 @@ interface IGame extends IDestroyable
 	public var view(default, null):IGameView;
 	
 	/**
+	 * Game skin.
+	 */
+	public var skin(default, null):IGameSkin;
+	
+	/**
 	 * Game controller.
 	 */
 	public var controller(default, null):IGameController;
@@ -34,4 +39,9 @@ interface IGame extends IDestroyable
 	 * Initialization routine.
 	 */
 	public function initialize():Void;
+	
+	/**
+	 * Starts the game.
+	 */
+	public function start():Void;
 }

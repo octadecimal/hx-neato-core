@@ -1,18 +1,81 @@
 {
-	"base": {
-		"symbol-p1.png": "assets/desktop/contexts/base/symbol-p1.png",
-		"background-base.png": "assets/desktop/contexts/base/background-base.png"
+	"poker": {
+		"6h.png": "assets/desktop/contexts/poker/6h.png",
+		"Jd.png": "assets/desktop/contexts/poker/Jd.png",
+		"5h.png": "assets/desktop/contexts/poker/5h.png",
+		"table_background.png": "assets/desktop/contexts/poker/table_background.png",
+		"4h.png": "assets/desktop/contexts/poker/4h.png",
+		"10h.png": "assets/desktop/contexts/poker/10h.png",
+		"3h.png": "assets/desktop/contexts/poker/3h.png",
+		"2h.png": "assets/desktop/contexts/poker/2h.png",
+		"As.png": "assets/desktop/contexts/poker/As.png",
+		"back.png": "assets/desktop/contexts/poker/back.png",
+		"10s.png": "assets/desktop/contexts/poker/10s.png",
+		"Ad.png": "assets/desktop/contexts/poker/Ad.png",
+		"btn-deal_up.png": "assets/desktop/contexts/poker/buttons/btn-deal_up.png",
+		"9s.png": "assets/desktop/contexts/poker/9s.png",
+		"btn-deal_down.png": "assets/desktop/contexts/poker/buttons/btn-deal_down.png",
+		"Qc.png": "assets/desktop/contexts/poker/Qc.png",
+		"8s.png": "assets/desktop/contexts/poker/8s.png",
+		"7s.png": "assets/desktop/contexts/poker/7s.png",
+		"6s.png": "assets/desktop/contexts/poker/6s.png",
+		"btn-deal_off.png": "assets/desktop/contexts/poker/buttons/btn-deal_off.png",
+		"10c.png": "assets/desktop/contexts/poker/10c.png",
+		"5s.png": "assets/desktop/contexts/poker/5s.png",
+		"4s.png": "assets/desktop/contexts/poker/4s.png",
+		"9d.png": "assets/desktop/contexts/poker/9d.png",
+		"joker.png": "assets/desktop/contexts/poker/joker.png",
+		"3s.png": "assets/desktop/contexts/poker/3s.png",
+		"8d.png": "assets/desktop/contexts/poker/8d.png",
+		"Kc.png": "assets/desktop/contexts/poker/Kc.png",
+		"2s.png": "assets/desktop/contexts/poker/2s.png",
+		"7d.png": "assets/desktop/contexts/poker/7d.png",
+		"Jc.png": "assets/desktop/contexts/poker/Jc.png",
+		"6d.png": "assets/desktop/contexts/poker/6d.png",
+		"5d.png": "assets/desktop/contexts/poker/5d.png",
+		"4d.png": "assets/desktop/contexts/poker/4d.png",
+		"3d.png": "assets/desktop/contexts/poker/3d.png",
+		"2d.png": "assets/desktop/contexts/poker/2d.png",
+		"buttons.null": "assets/desktop/contexts/poker/buttons/",
+		"Ac.png": "assets/desktop/contexts/poker/Ac.png",
+		"Qh.png": "assets/desktop/contexts/poker/Qh.png",
+		"Kh.png": "assets/desktop/contexts/poker/Kh.png",
+		"9c.png": "assets/desktop/contexts/poker/9c.png",
+		"Jh.png": "assets/desktop/contexts/poker/Jh.png",
+		"8c.png": "assets/desktop/contexts/poker/8c.png",
+		"7c.png": "assets/desktop/contexts/poker/7c.png",
+		"6c.png": "assets/desktop/contexts/poker/6c.png",
+		"5c.png": "assets/desktop/contexts/poker/5c.png",
+		"4c.png": "assets/desktop/contexts/poker/4c.png",
+		"3c.png": "assets/desktop/contexts/poker/3c.png",
+		"2c.png": "assets/desktop/contexts/poker/2c.png",
+		"Qs.png": "assets/desktop/contexts/poker/Qs.png",
+		"Ah.png": "assets/desktop/contexts/poker/Ah.png",
+		"10d.png": "assets/desktop/contexts/poker/10d.png",
+		"Qd.png": "assets/desktop/contexts/poker/Qd.png",
+		"Ks.png": "assets/desktop/contexts/poker/Ks.png",
+		"Js.png": "assets/desktop/contexts/poker/Js.png",
+		"9h.png": "assets/desktop/contexts/poker/9h.png",
+		"8h.png": "assets/desktop/contexts/poker/8h.png",
+		"7h.png": "assets/desktop/contexts/poker/7h.png",
+		"Kd.png": "assets/desktop/contexts/poker/Kd.png"
 	},
 	"loading": {
-		"progress-background.png": "assets/desktop/contexts/loading/progress-background.png",
+		"progress-foreground.png": "assets/desktop/contexts/loading/progress-foreground.png",
 		"loading-logo.png": "assets/desktop/contexts/loading/loading-logo.png",
-		"progress-foreground.png": "assets/desktop/contexts/loading/progress-foreground.png"
+		"progress-background.png": "assets/desktop/contexts/loading/progress-background.png"
+	},
+	"base": {
+		"symbols_0.json": "assets/desktop/contexts/base/symbols_0.json",
+		"symbol-p1.png": "assets/desktop/contexts/base/symbol-p1.png",
+		"background-base.png": "assets/desktop/contexts/base/background-base.png",
+		"symbols_0.png": "assets/desktop/contexts/base/symbols_0.png"
+	},
+	"default": {
+		"dom.ntx": "assets/desktop/dom.ntx",
+		"settings.json": "assets/desktop/settings.json"
 	},
 	"bonus": {
 		"background-bonus.png": "assets/desktop/contexts/bonus/background-bonus.png"
-	},
-	"default": {
-		"dom.xml": "assets/desktop/dom.xml",
-		"settings.json": "assets/desktop/settings.json"
 	}
 }

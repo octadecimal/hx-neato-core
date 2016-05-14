@@ -1,6 +1,7 @@
 package neato.core.actions;
 
 import neato.api.game.IGame;
+import neato.core.types.DynamicExt;
 import neato.core.util.StringUtil;
 
 /**
@@ -12,15 +13,15 @@ import neato.core.util.StringUtil;
 	private var _game:IGame;
 	
 	// Callback for complete()
-	private var _completeCallback:Action->Bool->Void;
+	private var _completeCallback:Action->Void;
 	
 	// Parameters
-	private var _params:Dynamic;
+	private var _params:DynamicExt;
 	
 	/**
 	 * Constructor.
 	 */
-	public function new(game:IGame, completeCallback:Action->Bool->Void, ?params:Dynamic) 
+	public function new(game:IGame, completeCallback:Action->Void, ?params:DynamicExt) 
 	{
 		isRunning = false;
 		
@@ -65,9 +66,9 @@ import neato.core.util.StringUtil;
 		
 	}
 	
-	public function complete(?success:Bool = true):Void
+	public function complete():Void
 	{
 		isRunning = false;
-		_completeCallback(this, success);
+		_completeCallback(this);
 	}
 }

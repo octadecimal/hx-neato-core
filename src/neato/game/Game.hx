@@ -3,6 +3,7 @@ package neato.game;
 import neato.api.game.IGame;
 import neato.api.game.IGameController;
 import neato.api.game.IGameModel;
+import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
 import neato.api.game.extensions.IExtensionManager;
 import neato.core.actions.ActionQueue;
@@ -20,10 +21,11 @@ class Game implements IGame
 	/**
 	 * Constructor.
 	 */
-	public function new(model:IGameModel, view:IGameView, controller:IGameController, extensions:IExtensionManager) 
+	public function new(model:IGameModel, view:IGameView, skin:IGameSkin, controller:IGameController, extensions:IExtensionManager) 
 	{
 		this.model = model;
 		this.view = view;
+		this.skin = skin;
 		this.controller = controller;
 		this.extensions = extensions;
 		
@@ -68,6 +70,11 @@ class Game implements IGame
 	public var view(default, null):IGameView;
 	
 	/**
+	 * Game skin.
+	 */
+	public var skin(default, null):IGameSkin;
+	
+	/**
 	 * Game controller.
 	 */
 	public var controller(default, null):IGameController;
@@ -87,7 +94,26 @@ class Game implements IGame
 	 */
 	public function initialize():Void
 	{
+		// Initialize game controller
 		controller.initialize();
+		
+		// Initialize game skin
+		skin.initialize(controller.loading.getTextureMap());
+	}
+	
+	/**
+	 * Starts the game.
+	 */
+	public function start():Void
+	{
+		// Start extensions
+		for (extension in extensions.getAllExtensions())
+		{
+			extension.start();
+		}
+		
+		// Start controller
+		controller.start();
 	}
 	
 	/**

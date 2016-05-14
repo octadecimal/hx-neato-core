@@ -1,4 +1,4 @@
-package neato.core.util;
+package neato.core.types;
 
 /**
  * ...

@@ -81,4 +81,20 @@ class ExtensionManager implements IExtensionManager
 			return null;
 		}
 	}
+	
+	/**
+	 * Retrieves a reference to all registered extensions.
+	 * @return
+	 */
+	public function getAllExtensions():Array<IExtension>
+	{
+		var output:Array<IExtension> = [];
+		
+		for (extension in _extensions)
+		{
+			output.push(extension);
+		}
+		
+		return output;
+	}
 }

@@ -1,0 +1,6 @@
+{
+	"dom-definitions": {
+		"scene-loading": "neato.game.view.loading.LoadingScreen",
+		"scene-main": "neato.poker.view.scenes.MainScene_poker"
+	}
+}

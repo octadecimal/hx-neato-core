@@ -1,0 +1,19 @@
+<dom>
+	<scene name="scene-loading">
+		<sprite name="loading-logo.png" x="408" y="293" />
+		<sprite name="progress-background.png" x="407" y="376" />
+		<sprite name="progress-foreground.png" x="426" y="391" />
+	</scene>
+	<scene name="scene-main">
+		<sprite name="table_background.png"/>
+			
+		<rect name="card-display" y="262" />
+		<rect name="card-0" x="144" />
+		<rect name="card-1" x="294" />
+		<rect name="card-2" x="444" />
+		<rect name="card-3" x="594" />
+		<rect name="card-4" x="744" />
+		
+		<button name="btn-deal" x="792" y="687" up="btn-deal_up.png" down="btn-deal_down.png" off="btn-deal_off.png" />
+	</scene>
+</dom>

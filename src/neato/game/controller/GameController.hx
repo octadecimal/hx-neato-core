@@ -1,9 +1,14 @@
 package neato.game.controller;
 
+import neato.api.game.IGame;
 import neato.api.game.IGameController;
+import neato.api.game.IGameModel;
+import neato.api.game.IGameView;
 import neato.api.game.controller.IActionsController;
+import neato.api.game.controller.IIntegrationController;
 import neato.api.game.controller.ILoadingController;
 import neato.core.debug.Debug;
+import neato.core.integration.Integrator;
 import neato.core.mvc.Controller;
 import neato.core.util.StringUtil;
 
@@ -12,28 +17,25 @@ import neato.core.util.StringUtil;
  */
 class GameController extends Controller implements IGameController
 {
-	/**
-	 * Actions controller.
-	 */
-	public var actions(default, null):IActionsController;
-	
-	/**
-	 * Loading controller.
-	 */
-	public var loading(default, null):ILoadingController;
-	
+	// Game references
+	private var _model:IGameModel;
+	private var _view:IGameView;
 	
 	/**
 	 * Constructor.
 	 */
-	public function new() 
+	public function new(model:IGameModel, view:IGameView) 
 	{
 		Debug.output("Creating...");
+		
+		_model = model;
+		_view = view;
 		
 		super();
 		
 		actions = getActionsController();
 		loading = getLoadingController();
+		integration = getIntegrationController();
 		
 		Debug.output("Created.");
 	}
@@ -58,12 +60,37 @@ class GameController extends Controller implements IGameController
 	
 	
 	
+	// PROPERTIES
+	//============================================================================================================
+	
+	/**
+	 * Actions controller.
+	 */
+	public var actions(default, null):IActionsController;
+	
+	/**
+	 * Loading controller.
+	 */
+	public var loading(default, null):ILoadingController;
+	
+	/**
+	 * Integration controller.
+	 */
+	public var integration(default, null):IIntegrationController;
+	
+	
+	
 	// API
 	//============================================================================================================
 	
 	public function initialize():Void
 	{
 		actions.initialize();
+	}
+	
+	public function start():Void
+	{
+		//actions.startGame(); -- now called on handshake received in GameController
 	}
 	
 	
@@ -73,11 +100,16 @@ class GameController extends Controller implements IGameController
 	
 	private function getActionsController():IActionsController
 	{
-		return new ActionsController();
+		return new ActionsController(_model);
 	}
 	
 	private function getLoadingController():ILoadingController
 	{
 		return new LoadingController();
+	}
+	
+	private function getIntegrationController():IIntegrationController
+	{
+		return new IntegrationController(new Integrator("http://localhost"));
 	}
 }

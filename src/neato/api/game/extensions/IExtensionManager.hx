@@ -10,4 +10,5 @@ interface IExtensionManager extends IDestroyable
 {
 	public function register(name:String, definition:Class<Dynamic>):Void;
 	public function get(name:String):IExtension;
+	public function getAllExtensions():Array<IExtension>;
 }

@@ -1,21 +1,26 @@
 package neato.game.controller;
 
+import neato.api.game.IGameModel;
 import neato.api.game.controller.IActionsController;
 import neato.core.debug.Debug;
+import neato.core.integration.ResponseVO;
 import neato.core.mvc.Controller;
-import neato.core.util.StringUtil;
 
 /**
  * ...
  */
 class ActionsController extends Controller implements IActionsController
 {
+	private var _gameModel:IGameModel;
+	
 	/**
 	 * Constructor.
 	 */
-	public function new() 
+	public function new(gameModel:IGameModel) 
 	{
 		Debug.output("Creating...");
+		
+		_gameModel = gameModel;
 		
 		super();
 		
@@ -44,7 +49,7 @@ class ActionsController extends Controller implements IActionsController
 		
 	}
 	
-	public function startGame():Void
+	public function startGame(vo:ResponseVO):Void
 	{
 		
 	}
@@ -54,7 +59,7 @@ class ActionsController extends Controller implements IActionsController
 		
 	}
 	
-	public function finishRound():Void
+	public function finishRound(vo:ResponseVO):Void
 	{
 		
 	}
