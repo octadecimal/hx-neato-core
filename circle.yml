@@ -12,7 +12,7 @@ machine:
 
 test:
   override:
-    #- haxe runtests-ci.hxml
+    - haxe test-ci.hxml
 
 deployment:
     master:
