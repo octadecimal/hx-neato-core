@@ -4,4 +4,4 @@
 -cmd haxelib install actuate --always || true
 -cmd haxelib install munit --always || true
 
--cmd haxelib run munit test -js
+-cmd haxelib run munit test -js -result-exit-code -kill-browser
