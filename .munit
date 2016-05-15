@@ -1,7 +1,8 @@
 version=2.1.2
 src=test
-bin=build/
-report=build/report
+bin=bin
+report=report
 hxml=test.hxml
 classPaths=src
 resources=munit/resources
+templates=null
