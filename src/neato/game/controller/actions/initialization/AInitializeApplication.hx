@@ -16,8 +16,8 @@ class AInitializeApplication extends Action
 		#if js
 		_application = new PixiApplication();
 		var scale:Float = _game.model.settings.get("window").get("scale");
-		_application.width = _game.model.settings.get("window").get("width") * scale;
-		_application.height = _game.model.settings.get("window").get("height") * scale;
+		//_application.width = _game.model.settings.get("window").get("width") * scale;
+		//_application.height = _game.model.settings.get("window").get("height") * scale;
 		#end
 		
 		// Listen for application ready

@@ -35,9 +35,6 @@ class GameEntry implements IGameEntry
 		
 		// Initialize game
 		_game.initialize();
-		
-		// Now destroy (test)
-		//destroy();
 	}
 	
 	/**

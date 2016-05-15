@@ -40,7 +40,7 @@ class PixiApplication extends Application implements IApplication
 	{
 		backgroundColor = 0x1481ae;
 		
-		start();
+		start(null, Browser.window.document.getElementById("lobby-container"));
 		
 		sigReady.dispatch();
 	}
