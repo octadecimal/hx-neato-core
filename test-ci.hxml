@@ -2,5 +2,6 @@
 -cmd haxelib install pixijs --always || true
 -cmd haxelib install msignal --always || true
 -cmd haxelib install actuate --always || true
+-cmd haxelib install munit --always || true
 
 -cmd haxelib run munit test -js
