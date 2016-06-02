@@ -4,7 +4,7 @@ import haxe.Timer;
 import neato.core.display.DisplayObject;
 import neato.core.display.Sprite;
 import neato.core.display.TextField;
-import neato.core.extensions.Extension;
+import neato.game.extensions.Extension;
 import neato.core.geom.Rectangle;
 import neato.core.types.NativeDisplayTypes.NativeTexture;
 import neato.poker.model.PokerStates;

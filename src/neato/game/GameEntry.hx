@@ -1,5 +1,6 @@
 package neato.game;
 
+import neato.api.game.notifications.INotificationManager;
 import neato.api.game.IGame;
 import neato.api.game.IGameController;
 import neato.api.game.IGameEntry;
@@ -7,6 +8,7 @@ import neato.api.game.IGameModel;
 import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
 import neato.api.game.extensions.IExtensionManager;
+import neato.game.notifications.NotificationManager;
 import neato.game.controller.GameController;
 import neato.game.extensions.ExtensionManager;
 import neato.game.model.GameModel;
@@ -63,12 +65,13 @@ class GameEntry implements IGameEntry
 		var skin:IGameSkin = getGameSkin();
 		var controller:IGameController = getGameController(model, view);
 		var extensions:IExtensionManager = getExtensionManager();
+		var notifications:INotificationManager = getNotificationManager();
 		
 		// Register extensions
 		registerExtensions(extensions);
 		
 		// Create and return game
-		return new Game(model, view, skin, controller, extensions);
+		return new Game(model, view, skin, controller, extensions, notifications);
 	}
 	
 	/**
@@ -114,6 +117,15 @@ class GameEntry implements IGameEntry
 	public function getExtensionManager():IExtensionManager
 	{
 		return new ExtensionManager();
+	}
+	
+	/**
+	 * Creates the game notification manager instance, can be overridden to provide a different INotificationManager to the game.
+	 * @return
+	 */
+	public function getNotificationManager():INotificationManager
+	{
+		return new NotificationManager();
 	}
 	
 	/**

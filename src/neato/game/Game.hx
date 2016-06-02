@@ -1,5 +1,6 @@
 package neato.game;
 
+import neato.api.game.notifications.INotificationManager;
 import neato.api.game.IGame;
 import neato.api.game.IGameController;
 import neato.api.game.IGameModel;
@@ -21,13 +22,14 @@ class Game implements IGame
 	/**
 	 * Constructor.
 	 */
-	public function new(model:IGameModel, view:IGameView, skin:IGameSkin, controller:IGameController, extensions:IExtensionManager) 
+	public function new(model:IGameModel, view:IGameView, skin:IGameSkin, controller:IGameController, extensions:IExtensionManager, notifications:INotificationManager) 
 	{
 		this.model = model;
 		this.view = view;
 		this.skin = skin;
 		this.controller = controller;
 		this.extensions = extensions;
+		this.notifications = notifications;
 		
 		_instance = this;
 		
@@ -83,6 +85,11 @@ class Game implements IGame
 	 * Game extensions.
 	 */
 	public var extensions(default, null):IExtensionManager;
+	
+	/**
+	 * Game notifications.
+	 */
+	public var notifications(default, null):INotificationManager;
 	
 	
 	
