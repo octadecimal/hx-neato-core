@@ -1,6 +1,6 @@
 package neato.game.controller.actions.scenes;
 
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 
 /**
  * ...

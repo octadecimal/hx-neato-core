@@ -2,7 +2,7 @@ package neato.game.controller.actions.initialization;
 
 import haxe.Json;
 import neato.api.core.loading.ILoader;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.loading.loaders.StringLoader;
 
 /**

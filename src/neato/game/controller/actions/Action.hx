@@ -1,4 +1,4 @@
-package neato.core.actions;
+package neato.game.controller.actions;
 
 import neato.api.game.IGame;
 import neato.core.types.DynamicExt;
@@ -51,7 +51,7 @@ import neato.core.util.StringUtil;
 	
 	
 	
-	// ACCESSORS
+	// PROPERTIES
 	//============================================================================================================
 	
 	public var isRunning(default, default):Bool;

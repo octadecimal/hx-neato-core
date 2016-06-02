@@ -1,8 +1,8 @@
 package neato.game.controller.actions.initialization;
 
 import neato.api.core.application.IApplication;
-import neato.core.actions.Action;
-import neato.core.application.PixiApplication;
+import neato.game.controller.actions.Action;
+import neato.game.view.application.PixiApplication;
 
 /**
  * ...

@@ -1,7 +1,7 @@
 package neato.template.controller;
 
 import neato.api.game.IGameModel;
-import neato.core.actions.ActionQueue;
+import neato.game.controller.actions.ActionQueue;
 import neato.core.integration.ResponseVO;
 import neato.game.controller.ActionsController;
 import neato.game.controller.actions.initialization.ADetermineGameSize;

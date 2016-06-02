@@ -1,4 +1,4 @@
-package neato.game.view.loading;
+package neato.game.view.scenes.loading;
 
 import motion.Actuate;
 import motion.easing.Back;

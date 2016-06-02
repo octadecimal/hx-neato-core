@@ -7,7 +7,7 @@ import neato.api.game.IGameModel;
 import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
 import neato.api.game.extensions.IExtensionManager;
-import neato.core.actions.ActionQueue;
+import neato.game.controller.actions.ActionQueue;
 import neato.core.debug.Debug;
 import neato.core.util.StringUtil;
 

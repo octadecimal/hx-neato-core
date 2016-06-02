@@ -1,5 +1,5 @@
 package neato.game.controller.actions.loading;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 
 /**
  * ...

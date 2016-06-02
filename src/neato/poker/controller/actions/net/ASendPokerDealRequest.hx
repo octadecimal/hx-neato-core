@@ -1,7 +1,7 @@
 package neato.poker.controller.actions.net;
 
 import neato.api.game.IGame;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.integration.RequestVO;
 import neato.core.types.DynamicExt;
 import neato.poker.extensions.PokerExtensions;
