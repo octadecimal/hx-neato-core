@@ -17,7 +17,6 @@ import neato.core.mvc.Controller;
 class GameController extends Controller implements IGameController
 {
 	// Game references
-	private var _model:IGameModel;
 	private var _view:IGameView;
 	
 	/**
@@ -34,7 +33,6 @@ class GameController extends Controller implements IGameController
 	{
 		Debug.output("Creating...");
 		
-		_model = model;
 		_view = view;
 		
 		this.actions = actions;
@@ -42,7 +40,7 @@ class GameController extends Controller implements IGameController
 		this.integration = integration;
 		this.sounds = sounds;
 		
-		super();
+		super(notifications, model);
 		
 		Debug.output("Created.");
 	}

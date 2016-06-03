@@ -21,6 +21,7 @@
 -lib pixijs
 -lib actuate
 -lib msignal
+-lib howlerjs
 -main neato.template.GameEntry_template
 -js bin/develop/hx-neato-core.js
 

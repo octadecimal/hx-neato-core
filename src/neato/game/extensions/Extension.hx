@@ -71,12 +71,41 @@ class Extension implements IExtension
 	 */
 	public function start():Void
 	{
-		_notifications.subscribe("TestNotification", onTestNotification);
-		_notifications.broadcast("TestNotification", { wow: "neat ;)" });
+		
 	}
 	
-	function onTestNotification(params:DynamicExt):Void 
+	
+	
+	// PRIVATE
+	//============================================================================================================
+	
+	/**
+	 * Broadcasts a notification.
+	 * @param	notification
+	 * @param	params
+	 */
+	private function broadcast(notification:String, ?params:DynamicExt):Void
 	{
-		trace("WHOA: " + params);
+		_notifications.broadcast(notification, params);
+	}
+	
+	/**
+	 * Subscribes to a notification.
+	 * @param	notification
+	 * @param	handler
+	 */
+	private function subscribe(notification:String, handler:DynamicExt):Void
+	{
+		_notifications.subscribe(notification, handler);
+	}
+	
+	/**
+	 * Unsubscribes to a notification.
+	 * @param	notification
+	 * @param	handler
+	 */
+	private function unsubscribe(notification:String, handler:DynamicExt):Void
+	{
+		_notifications.unsubscribe(notification, handler);
 	}
 }

@@ -2,6 +2,7 @@ package neato.game.controller;
 
 import neato.api.game.IGameModel;
 import neato.api.game.controller.IActionsController;
+import neato.api.game.notifications.INotificationManager;
 import neato.core.debug.Debug;
 import neato.core.integration.ResponseVO;
 import neato.core.mvc.Controller;
@@ -11,18 +12,14 @@ import neato.core.mvc.Controller;
  */
 class ActionsController extends Controller implements IActionsController
 {
-	private var _gameModel:IGameModel;
-	
 	/**
 	 * Constructor.
 	 */
-	public function new(gameModel:IGameModel) 
+	public function new(notifications:INotificationManager, model:IGameModel) 
 	{
 		Debug.output("Creating...");
 		
-		_gameModel = gameModel;
-		
-		super();
+		super(notifications, model);
 		
 		Debug.output("Created.");
 	}

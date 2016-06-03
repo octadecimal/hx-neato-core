@@ -6,7 +6,7 @@
 	</scene>
 	<scene name="scene-main">
 		<sprite name="table_background.png"/>
-			
+		
 		<region name="card-display" y="262" />
 		<region name="card-0" x="144" />
 		<region name="card-1" x="294" />

@@ -16,7 +16,7 @@ interface IGameView extends IContainer
 {
 	public var application(default, default):IApplication;
 	public var nativeStage(default, null):NativeContainer;
-	public var domBuilder(default, default):DOMBuilder;
+	public var dom(default, default):DOMBuilder;
 	
 	public function buildScene(name:String):Void;
 	public function showScene(name:String):Void;

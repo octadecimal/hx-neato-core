@@ -1,7 +1,9 @@
 package neato.game.controller;
 
 import msignal.Signal.Signal0;
+import neato.api.game.IGameModel;
 import neato.api.game.controller.ILoadingController;
+import neato.api.game.notifications.INotificationManager;
 import neato.core.debug.Debug;
 import neato.core.loading.LoaderQueue;
 import neato.core.mvc.Controller;
@@ -31,11 +33,11 @@ class LoadingController extends Controller implements ILoadingController
 	/**
 	 * Constructor.
 	 */
-	public function new() 
+	public function new(notifications:INotificationManager, model:IGameModel) 
 	{
 		Debug.output("Creating...");
 		
-		super();
+		super(notifications, model);
 		
 		sigComplete = new Signal0();
 		

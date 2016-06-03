@@ -16,7 +16,7 @@ class GameView extends ViewComponent implements IGameView
 	
 	public var nativeStage(default, null):NativeContainer;
 	
-	public var domBuilder(default, default):DOMBuilder;
+	public var dom(default, default):DOMBuilder;
 	
 	private var _scenes:Map<String, ViewComponent>;
 	
@@ -60,7 +60,7 @@ class GameView extends ViewComponent implements IGameView
 			throw "Scene already built: " + name;
 		}
 		
-		var scene:ViewComponent = domBuilder.buildScene(name, this);
+		var scene:ViewComponent = dom.buildScene(name, this);
 		
 		scene.visible = false;
 		

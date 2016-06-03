@@ -2,7 +2,9 @@ package neato.game.controller;
 
 import msignal.Signal.Signal1;
 import neato.api.core.integration.IIntegrator;
+import neato.api.game.IGameModel;
 import neato.api.game.controller.IIntegrationController;
+import neato.api.game.notifications.INotificationManager;
 import neato.core.debug.Debug;
 import neato.core.integration.RequestVO;
 import neato.core.integration.ResponseVO;
@@ -21,11 +23,11 @@ class IntegrationController extends Controller implements IIntegrationController
 	/**
 	 * Constructor.
 	 */
-	public function new(integrator:IIntegrator) 
+	public function new(notifications:INotificationManager, model:IGameModel, integrator:IIntegrator) 
 	{
 		_integrator = integrator;
 		
-		super();
+		super(notifications, model);
 		
 		sigResponseReceived = new Signal1<ResponseVO>();
 	}

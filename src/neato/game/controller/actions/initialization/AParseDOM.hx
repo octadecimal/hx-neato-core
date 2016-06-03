@@ -21,7 +21,7 @@ class AParseDOM extends Action
 		domBuilder.parseDom(_game.controller.loading.getXml("dom.ntx"));
 		
 		// Pass dom builder to game view
-		_game.view.domBuilder = domBuilder;
+		_game.view.dom = domBuilder;
 		
 		complete();
 	}

@@ -1,9 +1,10 @@
 package neato.template.controller;
 
 import neato.api.game.IGameModel;
-import neato.game.controller.actions.ActionQueue;
+import neato.api.game.notifications.INotificationManager;
 import neato.core.integration.ResponseVO;
 import neato.game.controller.ActionsController;
+import neato.game.controller.actions.ActionQueue;
 import neato.game.controller.actions.initialization.ADetermineGameSize;
 import neato.game.controller.actions.initialization.AInitializeApplication;
 import neato.game.controller.actions.initialization.AInitializeExtensions;
@@ -17,9 +18,7 @@ import neato.game.controller.actions.loading.ARequireContext;
 import neato.game.controller.actions.scenes.ABuildScene;
 import neato.game.controller.actions.scenes.AHideScene;
 import neato.game.controller.actions.scenes.AShowScene;
-import neato.game.controller.actions.state.ASetGameState;
 import neato.game.controller.actions.util.ATimeoutAction;
-import neato.game.model.GameStates;
 import neato.poker.controller.actions.AClearPokerHand;
 import neato.poker.controller.actions.ADisableButtons;
 import neato.poker.controller.actions.AEnableButtons;
@@ -29,7 +28,6 @@ import neato.poker.controller.actions.net.AHandleHandshakeResponse;
 import neato.poker.controller.actions.net.AHandlePokerDealResponse;
 import neato.poker.controller.actions.net.ASendPokerDealRequest;
 import neato.poker.controller.actions.net.ASendPokerHandshakeRequest;
-import neato.poker.model.PokerStates;
 
 /**
  * ...
@@ -41,9 +39,9 @@ class ActionsController_template extends ActionsController
 	/**
 	 * Constructor.
 	 */
-	public function new(gameModel:IGameModel) 
+	public function new(notifications:INotificationManager, gameModel:IGameModel) 
 	{
-		super(gameModel);
+		super(notifications, gameModel);
 		
 		_actionQueue = new ActionQueue();
 	}

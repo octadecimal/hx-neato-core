@@ -55,11 +55,11 @@ class GameEntry implements IGameEntry
 		var notificationManager:INotificationManager = Type.createInstance(config.notificationManager, []);
 		
 		// Controller
-		var actions:IActionsController = Type.createInstance(config.actions, [model]);
-		var loading:ILoadingController = Type.createInstance(config.loading, []);
-		var sounds:ISoundsController = Type.createInstance(config.sounds, []);
+		var actions:IActionsController = Type.createInstance(config.actions, [notificationManager, model]);
+		var loading:ILoadingController = Type.createInstance(config.loading, [notificationManager, model]);
+		var sounds:ISoundsController = Type.createInstance(config.sounds, [notificationManager, model]);
 		var integrator:IIntegrator = Type.createInstance(config.integrator, ["https://www.octadecimal.com/neatocasino/service/index.php"]);
-		var integration:IIntegrationController = Type.createInstance(config.integration, [integrator]);
+		var integration:IIntegrationController = Type.createInstance(config.integration, [notificationManager, model, integrator]);
 		var controller:IGameController = Type.createInstance(config.controller, [model, view, notificationManager, actions, loading, integration, sounds]);
 		
 		// Get registered extensions.

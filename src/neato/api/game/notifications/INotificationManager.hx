@@ -21,7 +21,6 @@ interface INotificationManager
 	 */
 	public function subscribe(notification:String, handler:DynamicExt):Void;
 	
-	
 	/**
 	 * Unsubscribes to a notification.
 	 * @param	notification

@@ -49,13 +49,18 @@ class PokerHandExtension extends Extension
 	
 	public function showResult(result:Array<String>):Void
 	{
+		var delayIndex:Int = 0;
+		
 		for (i in 0...5)
 		{
-			var texture:String = result[i];
-			
-			texture = _cardMap.get(Std.parseInt(result[i]));
-			
-			setCardTexture(i, texture, 100 * i);
+			if (_heldCards[i] == -1)
+			{
+				var texture:String = result[i];
+				
+				texture = _cardMap.get(Std.parseInt(result[i]));
+				
+				setCardTexture(i, texture, 100 * delayIndex++);
+			}
 		}
 	}
 	
@@ -83,6 +88,8 @@ class PokerHandExtension extends Extension
 				}
 			}
 		}
+		
+		broadcast("DECK_CLEARED");
 	}
 	
 	public function getHeldCards():Array<Int>
@@ -107,11 +114,11 @@ class PokerHandExtension extends Extension
 	
 	private function buildCards():Void
 	{
-		var cardsRegion:Rectangle = _gameView.domBuilder.getRegion("card-display");
+		var cardsRegion:Rectangle = _gameView.dom.getRegion("card-display");
 		
 		for (i in 0...5)
 		{
-			var region:Rectangle = _gameView.domBuilder.getRegion("card-" + i);
+			var region:Rectangle = _gameView.dom.getRegion("card-" + i);
 			
 			var sprite:Sprite = new Sprite(_gameSkin.getTexture("back.png"));
 			sprite.x = region.x;
@@ -151,6 +158,14 @@ class PokerHandExtension extends Extension
 		function apply():Void
 		{
 			_cards[index].texture = _gameSkin.getTexture(textureName+".png");
+			
+			if (textureName != "back")
+			{
+				if (_heldCards[index] == -1)
+				{
+					broadcast("CARD_CHANGED", { index: index, name: textureName });
+				}
+			}
 		}
 		
 		Timer.delay(apply, delay);
@@ -170,6 +185,8 @@ class PokerHandExtension extends Extension
 			_holdLabels[cardIndex].visible = !_holdLabels[cardIndex].visible;
 			
 			_heldCards[cardIndex] *= -1;
+			
+			broadcast("CARD_HELD");
 		}
 	}
 	
