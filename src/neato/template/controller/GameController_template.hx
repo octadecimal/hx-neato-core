@@ -1,17 +1,15 @@
 package neato.template.controller;
 
-import haxe.Timer;
 import neato.api.game.IGameModel;
 import neato.api.game.IGameView;
 import neato.api.game.controller.IActionsController;
 import neato.api.game.controller.IIntegrationController;
-import neato.core.display.Container;
+import neato.api.game.controller.ILoadingController;
+import neato.api.game.controller.ISoundsController;
+import neato.api.game.notifications.INotificationManager;
 import neato.core.display.DisplayObject;
-import neato.core.integration.Integrator;
 import neato.core.integration.ResponseVO;
 import neato.game.controller.GameController;
-import neato.game.controller.IntegrationController;
-import neato.poker.model.PokerIntegrator;
 import neato.poker.view.scenes.MainScene_poker;
 
 /**
@@ -24,9 +22,9 @@ class GameController_template extends GameController
 	/**
 	 * Constructor.
 	 */
-	public function new(model:IGameModel, view:IGameView) 
+	public function new(model:IGameModel, view:IGameView, notifications:INotificationManager, actions:IActionsController, loading:ILoadingController, integration:IIntegrationController, sounds:ISoundsController) 
 	{
-		super(model, view);
+		super(model, view, notifications, actions, loading, integration, sounds);
 		
 		integration.sigResponseReceived.add(onIntegrationResponseReceived);
 	}
@@ -85,21 +83,5 @@ class GameController_template extends GameController
 	private function onDealClicked(target:DisplayObject):Void
 	{
 		actions.startRound();
-	}
-	
-	
-	
-	// CONFIGURATION
-	//============================================================================================================
-	
-	override function getActionsController():IActionsController 
-	{
-		return new ActionsController_template(_model);
-	}
-	
-	override function getIntegrationController():IIntegrationController 
-	{
-		//return new IntegrationController(new Integrator("https://localhost/neatocasino/service/index.php"));
-		return new IntegrationController(new Integrator("https://www.octadecimal.com/neatocasino/service/index.php"));
 	}
 }

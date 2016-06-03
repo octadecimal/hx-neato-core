@@ -1,11 +1,16 @@
 package neato.game;
 
+import neato.api.core.integration.IIntegrator;
 import neato.api.game.IGame;
 import neato.api.game.IGameController;
 import neato.api.game.IGameEntry;
 import neato.api.game.IGameModel;
 import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
+import neato.api.game.controller.IActionsController;
+import neato.api.game.controller.IIntegrationController;
+import neato.api.game.controller.ILoadingController;
+import neato.api.game.controller.ISoundsController;
 import neato.api.game.extensions.IExtension;
 import neato.api.game.extensions.IExtensionManager;
 import neato.api.game.notifications.INotificationManager;
@@ -36,13 +41,26 @@ class GameEntry implements IGameEntry
 	
 	private function createGameFromConfiguration(config:GameConfigurationVO):IGame
 	{
-		// Create game component instances
+		// Model
 		var model:IGameModel = Type.createInstance(config.model, []);
+		
+		// View
 		var view:IGameView = Type.createInstance(config.view, []);
 		var skin:IGameSkin = Type.createInstance(config.skin, []);
-		var controller:IGameController = Type.createInstance(config.controller, [model, view]);
+		
+		// Extension Manager
 		var extensionManager:IExtensionManager = Type.createInstance(config.extensionManager, []);
+		
+		// Notification Manager
 		var notificationManager:INotificationManager = Type.createInstance(config.notificationManager, []);
+		
+		// Controller
+		var actions:IActionsController = Type.createInstance(config.actions, [model]);
+		var loading:ILoadingController = Type.createInstance(config.loading, []);
+		var sounds:ISoundsController = Type.createInstance(config.sounds, []);
+		var integrator:IIntegrator = Type.createInstance(config.integrator, ["https://www.octadecimal.com/neatocasino/service/index.php"]);
+		var integration:IIntegrationController = Type.createInstance(config.integration, [integrator]);
+		var controller:IGameController = Type.createInstance(config.controller, [model, view, notificationManager, actions, loading, integration, sounds]);
 		
 		// Get registered extensions.
 		var extensions:Map<String, Class<IExtension>> = config.getExtensions();

@@ -9,6 +9,7 @@ import neato.poker.extensions.hand.PokerHandExtension;
 import neato.poker.view.GameSkin_poker;
 import neato.slots.extensions.SlotsExtensions;
 import neato.slots.extensions.reels.ReelsExtension;
+import neato.template.controller.ActionsController_template;
 import neato.template.controller.GameController_template;
 import neato.template.extensions.ExtensionNames_template;
 import neato.template.extensions.bigwin.EBigWin;
@@ -47,6 +48,8 @@ class GameEntry_template extends GameEntry
 		config.controller = GameController_template;
 		config.view = GameView_template;
 		config.skin = GameSkin_poker;
+		
+		config.actions = ActionsController_template;
 		
 		config.extension(PokerExtensions.POKER_HAND, PokerHandExtension);
 		config.extension(SlotsExtensions.REELS, ReelsExtension);
