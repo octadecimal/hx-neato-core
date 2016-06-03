@@ -1,7 +1,7 @@
 package neato.template.controller.actions;
 
 import neato.api.game.IGame;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.display.Sprite;
 import neato.core.types.NativeDisplayTypes;
 

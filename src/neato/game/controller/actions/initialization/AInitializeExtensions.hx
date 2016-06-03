@@ -1,9 +1,9 @@
 package neato.game.controller.actions.initialization;
 
-import neato.api.core.extensions.IExtension;
+import neato.api.game.extensions.IExtension;
 import neato.api.game.IGame;
 import neato.api.game.extensions.IExtensionManager;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.types.DynamicExt;
 
 /**
@@ -17,7 +17,7 @@ class AInitializeExtensions extends Action
 		
 		for (extension in extensions)
 		{
-			extension.initialize(_game.model, _game.view, _game.skin);
+			extension.initialize(_game.model, _game.view, _game.skin, _game.notifications);
 		}
 		
 		complete();

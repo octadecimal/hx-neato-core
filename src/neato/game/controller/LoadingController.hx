@@ -14,11 +14,6 @@ import pixi.core.textures.Texture;
  */
 class LoadingController extends Controller implements ILoadingController
 {
-	/**
-	 * Dispatched when all queued assets have been loaded.
-	 */
-	public var sigComplete(default, null):Signal0;
-	
 	// Our registered asset map.
 	private var _assetMap:DynamicExt;
 	
@@ -67,6 +62,16 @@ class LoadingController extends Controller implements ILoadingController
 		
 		Debug.output("Destroyed.");
 	}
+	
+	
+	
+	// PROPERTIES
+	//============================================================================================================
+	
+	/**
+	 * Dispatched when all queued assets have been loaded.
+	 */
+	public var sigComplete(default, null):Signal0;
 	
 	
 	

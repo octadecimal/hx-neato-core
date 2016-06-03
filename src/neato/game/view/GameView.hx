@@ -3,7 +3,6 @@ package neato.game.view;
 import neato.api.core.application.IApplication;
 import neato.api.game.IGameView;
 import neato.core.debug.Debug;
-import neato.core.display.Container;
 import neato.core.dom.DOMBuilder;
 import neato.core.mvc.ViewComponent;
 import neato.core.types.NativeDisplayTypes.NativeContainer;
@@ -50,6 +49,10 @@ class GameView extends ViewComponent implements IGameView
 	// API
 	//============================================================================================================
 	
+	/**
+	 * Builds a scene by name.
+	 * @param	name	Name of scene (as defined in the dom.xml) to be built.
+	 */
 	public function buildScene(name:String):Void
 	{
 		if (_scenes.exists(name))
@@ -64,6 +67,11 @@ class GameView extends ViewComponent implements IGameView
 		_scenes.set(name, scene);
 	}
 	
+	/**
+	 * Retrieves a reference to a scene by name.
+	 * @param	name	Name of scene.
+	 * @return
+	 */
 	public function getScene(name:String):ViewComponent
 	{
 		if (_scenes.exists(name))
@@ -76,6 +84,10 @@ class GameView extends ViewComponent implements IGameView
 		}
 	}
 	
+	/**
+	 * Shows a scene by name.
+	 * @param	name	Name of scene.
+	 */
 	public function showScene(name:String):Void
 	{
 		if (_scenes.exists(name))
@@ -88,6 +100,10 @@ class GameView extends ViewComponent implements IGameView
 		}
 	}
 	
+	/**
+	 * Hides a scene by name.
+	 * @param	name	Name of scene.
+	 */
 	public function hideScene(name:String):Void
 	{
 		if (_scenes.exists(name))

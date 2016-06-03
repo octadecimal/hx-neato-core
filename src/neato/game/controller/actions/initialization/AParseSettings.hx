@@ -1,6 +1,6 @@
 package neato.game.controller.actions.initialization;
 
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.types.DynamicExt;
 
 /**

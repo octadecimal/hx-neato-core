@@ -1,12 +1,13 @@
 package neato.game;
 
+import neato.api.game.notifications.INotificationManager;
 import neato.api.game.IGame;
 import neato.api.game.IGameController;
 import neato.api.game.IGameModel;
 import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
 import neato.api.game.extensions.IExtensionManager;
-import neato.core.actions.ActionQueue;
+import neato.game.controller.actions.ActionQueue;
 import neato.core.debug.Debug;
 import neato.core.util.StringUtil;
 
@@ -21,17 +22,20 @@ class Game implements IGame
 	/**
 	 * Constructor.
 	 */
-	public function new(model:IGameModel, view:IGameView, skin:IGameSkin, controller:IGameController, extensions:IExtensionManager) 
+	public function new(model:IGameModel, view:IGameView, skin:IGameSkin, controller:IGameController, extensions:IExtensionManager, notifications:INotificationManager) 
 	{
 		this.model = model;
 		this.view = view;
 		this.skin = skin;
 		this.controller = controller;
 		this.extensions = extensions;
+		this.notifications = notifications;
 		
 		_instance = this;
 		
 		Debug.output("Created. model=" + StringUtil.getClassName(model) + " view=" + StringUtil.getClassName(view) + " controller=" + StringUtil.getClassName(controller) + " extensions=" + StringUtil.getClassName(extensions));
+		
+		initialize();
 	}
 	
 	/**
@@ -83,6 +87,11 @@ class Game implements IGame
 	 * Game extensions.
 	 */
 	public var extensions(default, null):IExtensionManager;
+	
+	/**
+	 * Game notifications.
+	 */
+	public var notifications(default, null):INotificationManager;
 	
 	
 	

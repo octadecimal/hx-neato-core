@@ -1,5 +1,5 @@
 package neato.template.controller.actions;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.template.extensions.ExtensionNames_template;
 
 /**

@@ -1,5 +1,5 @@
 package neato.template.extensions.bigwin;
-import neato.core.extensions.Extension;
+import neato.game.extensions.Extension;
 
 /**
  * ...

@@ -1,10 +1,12 @@
-package neato.core.extensions;
+package neato.game.extensions;
 
-import neato.api.core.extensions.IExtension;
+import neato.api.game.extensions.IExtension;
+import neato.api.game.notifications.INotificationManager;
 import neato.api.game.IGameModel;
 import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
 import neato.core.debug.Debug;
+import neato.core.types.DynamicExt;
 import neato.core.util.StringUtil;
 
 /**
@@ -20,6 +22,9 @@ class Extension implements IExtension
 	
 	// Game skin reference, gets set via initialize method.
 	private var _gameSkin:IGameSkin;
+	
+	// Notification manager reference, gets set via initialize method.
+	private var _notifications:INotificationManager;
 	
 	/**
 	 * Constructor.
@@ -53,11 +58,12 @@ class Extension implements IExtension
 	/**
 	 * Initialization routine, allows for the AInitializeExtensions action to pass in references for this extension.
 	 */
-	public function initialize(gameModel:IGameModel, gameView:IGameView, gameSkin:IGameSkin):Void
+	public function initialize(gameModel:IGameModel, gameView:IGameView, gameSkin:IGameSkin, notifications:INotificationManager):Void
 	{
 		_gameModel = gameModel;
 		_gameView = gameView;
 		_gameSkin = gameSkin;
+		_notifications = notifications;
 	}
 	
 	/**
@@ -65,6 +71,12 @@ class Extension implements IExtension
 	 */
 	public function start():Void
 	{
-		
+		_notifications.subscribe("TestNotification", onTestNotification);
+		_notifications.broadcast("TestNotification", { wow: "neat ;)" });
+	}
+	
+	function onTestNotification(params:DynamicExt):Void 
+	{
+		trace("WHOA: " + params);
 	}
 }

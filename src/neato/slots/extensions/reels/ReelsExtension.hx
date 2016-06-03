@@ -1,5 +1,5 @@
 package neato.slots.extensions.reels;
-import neato.core.extensions.Extension;
+import neato.game.extensions.Extension;
 
 /**
  * ...

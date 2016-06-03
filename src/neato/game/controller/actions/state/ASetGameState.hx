@@ -1,7 +1,7 @@
 package neato.game.controller.actions.state;
 
 import neato.api.game.IGame;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.types.DynamicExt;
 
 /**

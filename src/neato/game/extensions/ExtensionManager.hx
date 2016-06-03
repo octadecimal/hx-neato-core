@@ -1,6 +1,6 @@
 package neato.game.extensions;
 
-import neato.api.core.extensions.IExtension;
+import neato.api.game.extensions.IExtension;
 import neato.api.game.extensions.IExtensionManager;
 import neato.core.debug.Debug;
 

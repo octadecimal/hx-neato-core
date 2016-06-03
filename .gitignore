@@ -3,3 +3,5 @@ bin/
 .temp/
 munit/build
 munit/report
+
+report/

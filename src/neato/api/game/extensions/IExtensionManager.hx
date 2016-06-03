@@ -1,7 +1,7 @@
 package neato.api.game.extensions;
 
 import neato.api.core.IDestroyable;
-import neato.api.core.extensions.IExtension;
+import neato.api.game.extensions.IExtension;
 
 /**
  * ...

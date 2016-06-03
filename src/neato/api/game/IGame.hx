@@ -1,5 +1,6 @@
 package neato.api.game;
 
+import neato.api.game.notifications.INotificationManager;
 import neato.api.game.IGameController;
 import neato.api.game.IGameModel;
 import neato.api.core.IDestroyable;
@@ -33,6 +34,11 @@ interface IGame extends IDestroyable
 	 * Game extensions.
 	 */
 	public var extensions(default, null):IExtensionManager;
+	
+	/**
+	 * Game notifications.
+	 */
+	public var notifications(default, null):INotificationManager;
 	
 	
 	/**

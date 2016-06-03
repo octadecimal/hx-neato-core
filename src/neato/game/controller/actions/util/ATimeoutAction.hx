@@ -2,7 +2,7 @@ package neato.game.controller.actions.util;
 
 import haxe.Timer;
 import neato.api.game.IGame;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.types.DynamicExt;
 
 /**

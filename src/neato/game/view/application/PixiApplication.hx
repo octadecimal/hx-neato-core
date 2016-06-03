@@ -1,4 +1,4 @@
-package neato.core.application;
+package neato.game.view.application;
 
 import msignal.Signal;
 import neato.api.core.application.IApplication;

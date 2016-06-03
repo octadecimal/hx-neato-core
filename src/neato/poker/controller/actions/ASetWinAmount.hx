@@ -1,7 +1,7 @@
 package neato.poker.controller.actions;
 
 import neato.api.game.IGame;
-import neato.core.actions.Action;
+import neato.game.controller.actions.Action;
 import neato.core.types.DynamicExt;
 import neato.poker.view.scenes.MainScene_poker;
 

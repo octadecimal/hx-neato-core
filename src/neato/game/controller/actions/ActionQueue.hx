@@ -1,8 +1,9 @@
-package neato.core.actions;
+package neato.game.controller.actions;
 
 import neato.api.core.actions.IActionQueue;
 import neato.api.game.IGame;
 import neato.game.Game;
+import neato.game.controller.actions.Action;
 
 /**
  * ...
