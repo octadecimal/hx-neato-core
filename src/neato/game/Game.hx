@@ -34,6 +34,8 @@ class Game implements IGame
 		_instance = this;
 		
 		Debug.output("Created. model=" + StringUtil.getClassName(model) + " view=" + StringUtil.getClassName(view) + " controller=" + StringUtil.getClassName(controller) + " extensions=" + StringUtil.getClassName(extensions));
+		
+		initialize();
 	}
 	
 	/**
