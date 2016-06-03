@@ -20,14 +20,14 @@ class DOMBuilder
 	private static inline var CONTAINER:String = "container";
 	private static inline var SPRITE:String = "sprite";
 	private static inline var TEXTFIELD:String = "textfield";
-	private static inline var RECT:String = "rect";
+	private static inline var REGION:String = "region";
 	private static inline var BUTTON:String = "button";
 	
 	private var _scenes:Map<String, DOMElement>;
 	private var _definitions:Map<String, String>;
 	private var _textureList:Map<String, NativeTexture>;
 	private var _scale:Float;
-	private var _rects:Map<String, Rectangle>;
+	private var _regions:Map<String, Rectangle>;
 	
 	/**
 	 * Constructor.
@@ -39,7 +39,7 @@ class DOMBuilder
 		_textureList = textureList;
 		_scale = scale;
 		
-		_rects = new Map<String, Rectangle>();
+		_regions = new Map<String, Rectangle>();
 	}
 	
 	/**
@@ -88,15 +88,15 @@ class DOMBuilder
 		return scene;
 	}
 	
-	public function getRect(name:String):Rectangle
+	public function getRegion(name:String):Rectangle
 	{
-		if (_rects.exists(name))
+		if (_regions.exists(name))
 		{
-			return _rects.get(name);
+			return _regions.get(name);
 		}
 		else
 		{
-			Debug.output("Rect not found: " + name);
+			Debug.output("Region not found: " + name);
 			return null;
 		}
 	}
@@ -147,8 +147,8 @@ class DOMBuilder
 		
 		switch(element.type)
 		{
-			case RECT:
-				output = buildRect(element, parent);
+			case REGION:
+				output = buildRegion(element, parent);
 			default:
 				output = buildDisplayObject(element, parent);
 		}
@@ -250,30 +250,30 @@ class DOMBuilder
 		return displayObject;
 	}
 	
-	private function buildRect(element:DOMElement, parent:DisplayObject):Rectangle
+	private function buildRegion(element:DOMElement, parent:DisplayObject):Rectangle
 	{
-		var rect:Rectangle = new Rectangle();
+		var region:Rectangle = new Rectangle();
 		
-		if (isDefined(element.x))         rect.x         = element.x * _scale;
-		if (isDefined(element.y))         rect.y         = element.y * _scale;
-		if (isDefined(element.width))     rect.width     = element.width * _scale;
-		if (isDefined(element.height))    rect.height    = element.height * _scale;
+		if (isDefined(element.x))         region.x         = element.x * _scale;
+		if (isDefined(element.y))         region.y         = element.y * _scale;
+		if (isDefined(element.width))     region.width     = element.width * _scale;
+		if (isDefined(element.height))    region.height    = element.height * _scale;
 		
 		if (Std.is(parent, ViewComponent))
 		{
-			cast(parent, ViewComponent).addRect(element.name, rect);
+			cast(parent, ViewComponent).addRegion(element.name, region);
 		}
 		
-		if (_rects.exists(element.name))
+		if (_regions.exists(element.name))
 		{
-			throw "Rect already defined, names must be unique for rects: " + element.name;
+			throw "Region already defined, names must be unique for rects: " + element.name;
 		}
 		else
 		{
-			_rects.set(element.name, rect);
+			_regions.set(element.name, region);
 		}
 		
-		return rect;
+		return region;
 	}
 
 	private function getTextStyleFromElement(element:DOMElement):TextStyle

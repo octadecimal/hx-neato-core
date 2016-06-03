@@ -7,12 +7,12 @@
 	<scene name="scene-main">
 		<sprite name="table_background.png"/>
 			
-		<rect name="card-display" y="262" />
-		<rect name="card-0" x="144" />
-		<rect name="card-1" x="294" />
-		<rect name="card-2" x="444" />
-		<rect name="card-3" x="594" />
-		<rect name="card-4" x="744" />
+		<region name="card-display" y="262" />
+		<region name="card-0" x="144" />
+		<region name="card-1" x="294" />
+		<region name="card-2" x="444" />
+		<region name="card-3" x="594" />
+		<region name="card-4" x="744" />
 		
 		<button name="btn-deal" x="792" y="687" up="btn-deal_up.png" down="btn-deal_down.png" off="btn-deal_off.png" />
 	</scene>

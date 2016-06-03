@@ -1,4 +1,5 @@
 package neato.game.controller.actions.initialization;
+
 import neato.game.controller.actions.Action;
 import neato.core.dom.DOMBuilder;
 import neato.core.types.DynamicExt;

@@ -40,7 +40,7 @@ class ViewComponent extends Container
 		
 	}
 	
-	public function addRect(name:String, rect:Rectangle) 
+	public function addRegion(name:String, region:Rectangle) 
 	{
 		
 	}

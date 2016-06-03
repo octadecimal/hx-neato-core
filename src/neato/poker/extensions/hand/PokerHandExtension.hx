@@ -107,11 +107,11 @@ class PokerHandExtension extends Extension
 	
 	private function buildCards():Void
 	{
-		var cardsRegion:Rectangle = _gameView.domBuilder.getRect("card-display");
+		var cardsRegion:Rectangle = _gameView.domBuilder.getRegion("card-display");
 		
 		for (i in 0...5)
 		{
-			var region:Rectangle = _gameView.domBuilder.getRect("card-" + i);
+			var region:Rectangle = _gameView.domBuilder.getRegion("card-" + i);
 			
 			var sprite:Sprite = new Sprite(_gameSkin.getTexture("back.png"));
 			sprite.x = region.x;

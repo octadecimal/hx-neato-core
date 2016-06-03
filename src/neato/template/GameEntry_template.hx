@@ -27,7 +27,6 @@ class GameEntry_template extends GameEntry
 	{
 		// Configure debugger
 		#if debug
-		//Log.trace = Debug.output;
 		Debug.addTarget(new TraceTarget());
 		#end
 		
