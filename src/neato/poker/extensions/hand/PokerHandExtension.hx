@@ -25,7 +25,6 @@ class PokerHandExtension extends Extension
 	public function new() 
 	{
 		super();
-		
 	}
 	
 	/**

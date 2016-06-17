@@ -6,7 +6,7 @@ import neato.api.game.IGameController;
 import neato.api.game.IGameModel;
 import neato.api.game.IGameSkin;
 import neato.api.game.IGameView;
-import neato.api.game.extensions.IExtensionManager;
+import neato.api.game.extensions.IExtensionsManager;
 import neato.game.controller.actions.ActionQueue;
 import neato.core.debug.Debug;
 import neato.core.util.StringUtil;
@@ -22,7 +22,7 @@ class Game implements IGame
 	/**
 	 * Constructor.
 	 */
-	public function new(model:IGameModel, view:IGameView, skin:IGameSkin, controller:IGameController, extensions:IExtensionManager, notifications:INotificationManager) 
+	public function new(model:IGameModel, view:IGameView, skin:IGameSkin, controller:IGameController, extensions:IExtensionsManager, notifications:INotificationManager) 
 	{
 		this.model = model;
 		this.view = view;
@@ -86,7 +86,7 @@ class Game implements IGame
 	/**
 	 * Game extensions.
 	 */
-	public var extensions(default, null):IExtensionManager;
+	public var extensions(default, null):IExtensionsManager;
 	
 	/**
 	 * Game notifications.

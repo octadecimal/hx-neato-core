@@ -75,10 +75,6 @@ class MainScene_poker extends ViewComponent
 	
 	public function showWinAmount(amount:Int, type:Int):Void
 	{
-		trace("--------------------------");
-		trace("SETTING TYPE: " + type);
-		trace("--------------------------");
-		
 		txtWinAmount.text = "WIN: " + Std.string(amount);
 		
 		if (amount > 0 && (type > -1 && type != null))

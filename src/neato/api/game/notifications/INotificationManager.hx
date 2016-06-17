@@ -1,30 +1,13 @@
 package neato.api.game.notifications;
 
+import neato.api.core.mvc.INotifiable;
+import neato.api.core.mvc.INotifier;
 import neato.core.types.DynamicExt;
 
 /**
  * ...
  */
-interface INotificationManager 
+interface INotificationManager extends INotifier extends INotifiable
 {
-	/**
-	 * Broadcasts a notification.
-	 * @param	notification
-	 * @param	params
-	 */
-	public function broadcast(notification:String, ?params:DynamicExt):Void;
 	
-	/**
-	 * Subscribes to a notification.
-	 * @param	notification
-	 * @param	handler
-	 */
-	public function subscribe(notification:String, handler:DynamicExt):Void;
-	
-	/**
-	 * Unsubscribes to a notification.
-	 * @param	notification
-	 * @param	handler
-	 */
-	public function unsubscribe(notification:String, handler:DynamicExt):Void;
 }

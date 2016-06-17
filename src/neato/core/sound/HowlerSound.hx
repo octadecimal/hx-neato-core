@@ -1,9 +1,9 @@
-package neato.game.notifications;
+package neato.core.sound;
 
 /**
  * ...
  */
-class Notification
+class HowlerSound
 {
 	/**
 	 * Constructor.

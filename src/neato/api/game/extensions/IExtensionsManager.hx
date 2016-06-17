@@ -6,7 +6,7 @@ import neato.api.game.extensions.IExtension;
 /**
  * ...
  */
-interface IExtensionManager extends IDestroyable
+interface IExtensionsManager extends IDestroyable
 {
 	public function register(name:String, definition:Class<Dynamic>):Void;
 	public function get(name:String):IExtension;

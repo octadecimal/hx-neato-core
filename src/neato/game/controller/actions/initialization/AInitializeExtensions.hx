@@ -2,7 +2,7 @@ package neato.game.controller.actions.initialization;
 
 import neato.api.game.extensions.IExtension;
 import neato.api.game.IGame;
-import neato.api.game.extensions.IExtensionManager;
+import neato.api.game.extensions.IExtensionsManager;
 import neato.game.controller.actions.Action;
 import neato.core.types.DynamicExt;
 

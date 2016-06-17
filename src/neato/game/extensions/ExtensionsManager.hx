@@ -1,13 +1,13 @@
 package neato.game.extensions;
 
 import neato.api.game.extensions.IExtension;
-import neato.api.game.extensions.IExtensionManager;
+import neato.api.game.extensions.IExtensionsManager;
 import neato.core.debug.Debug;
 
 /**
  * ...
  */
-class ExtensionManager implements IExtensionManager
+class ExtensionsManager implements IExtensionsManager
 {
 	// Extension map
 	private var _extensions:Map<String, IExtension>;

@@ -4,14 +4,7 @@ import neato.api.game.IGameModel;
 import neato.api.game.notifications.INotificationManager;
 import neato.core.integration.ResponseVO;
 import neato.game.controller.ActionsController;
-import neato.game.controller.actions.ActionQueue;
-import neato.game.controller.actions.initialization.ADetermineGameSize;
-import neato.game.controller.actions.initialization.AInitializeApplication;
 import neato.game.controller.actions.initialization.AInitializeExtensions;
-import neato.game.controller.actions.initialization.ALoadAssetMap;
-import neato.game.controller.actions.initialization.ALoadGlobalSettings;
-import neato.game.controller.actions.initialization.AParseDOM;
-import neato.game.controller.actions.initialization.AParseSettings;
 import neato.game.controller.actions.initialization.AStartGame;
 import neato.game.controller.actions.loading.ALoadRequiredContexts;
 import neato.game.controller.actions.loading.ARequireContext;
@@ -34,16 +27,12 @@ import neato.poker.controller.actions.net.ASendPokerHandshakeRequest;
  */
 class ActionsController_template extends ActionsController
 {
-	private var _actionQueue:ActionQueue;
-	
 	/**
 	 * Constructor.
 	 */
 	public function new(notifications:INotificationManager, gameModel:IGameModel) 
 	{
 		super(notifications, gameModel);
-		
-		_actionQueue = new ActionQueue();
 	}
 	
 	/**
@@ -67,54 +56,29 @@ class ActionsController_template extends ActionsController
 	{
 		super.initialize();
 		
-		// Get game size (asset prefix)
-		_actionQueue.add(ADetermineGameSize);
-		
-		// Load core resources
-		_actionQueue.add(ALoadGlobalSettings);
-		_actionQueue.add(ALoadAssetMap);
-		
-		// Require default context
-		_actionQueue.add(ARequireContext, "default");
-		_actionQueue.add(ALoadRequiredContexts);
-		
-		// Parse settings
-		_actionQueue.add(AParseSettings);
-		
-		// Initialize application
-		_actionQueue.add(AInitializeApplication);
-		
-		// Parse game dom
-		_actionQueue.add(AParseDOM);
-		
 		// Require loading context
-		_actionQueue.add(ARequireContext, "loading");
-		_actionQueue.add(ALoadRequiredContexts);
+		add(ARequireContext, "loading");
+		add(ALoadRequiredContexts);
 		
 		// Show loading screen
-		_actionQueue.add(ABuildScene, "scene-loading");
-		_actionQueue.add(AShowScene, "scene-loading");
+		add(ABuildScene, "scene-loading");
+		add(AShowScene, "scene-loading");
 		
 		// Require poker context
-		_actionQueue.add(ARequireContext, "poker");
-		_actionQueue.add(ALoadRequiredContexts);
+		add(ARequireContext, "poker");
+		add(ALoadRequiredContexts);
 		
 		// Build main scene
-		_actionQueue.add(ABuildScene, "scene-main");
-		
-		// Initialize extensions
-		_actionQueue.add(AInitializeExtensions);
+		add(ABuildScene, "scene-main");
 		
 		// Initial state
-		_actionQueue.add(ADisableButtons);
+		add(ADisableButtons);
 		
 		// Send handshake request
-		_actionQueue.add(ASendPokerHandshakeRequest);
+		add(ASendPokerHandshakeRequest);
 		
-		// Start game	-- now gets called by GameController on handshake received
-		//_actionQueue.add(AStartGame);
-		
-		_actionQueue.execute();
+		// Execute
+		execute();
 	}
 	
 	
@@ -126,18 +90,24 @@ class ActionsController_template extends ActionsController
 	{
 		super.startGame(vo);
 		
-		_actionQueue.add(AHandleHandshakeResponse, vo);
+		// Handle handshake
+		add(AHandleHandshakeResponse, vo);
 		
-		_actionQueue.add(AStartGame);
+		// Start game
+		add(AStartGame);
 		
-		_actionQueue.add(AShowScene, "scene-main");
-		_actionQueue.add(AHideScene, "scene-loading");
+		// Show main scene
+		add(AShowScene, "scene-main");
+		add(AHideScene, "scene-loading");
 		
-		_actionQueue.add(AShowPokerHand, vo.result);
+		// Show initial poker hand
+		add(AShowPokerHand, vo.result);
 		
-		_actionQueue.add(AEnableButtons);
+		// Enable buttons
+		add(AEnableButtons);
 		
-		_actionQueue.execute();
+		// Execute
+		execute();
 	}
 	
 	
@@ -149,15 +119,14 @@ class ActionsController_template extends ActionsController
 	{
 		super.startRound();
 		
-		_actionQueue.add(ASetWinAmount, 0);
+		add(ASetWinAmount, 0);
 		
-		//_actionQueue.add(ASetGameState, GameStates.BUSY);
-		_actionQueue.add(ADisableButtons);
-		_actionQueue.add(AClearPokerHand);
+		add(ADisableButtons);
+		add(AClearPokerHand);
 		
-		_actionQueue.add(ASendPokerDealRequest, 2);
+		add(ASendPokerDealRequest, 2);
 		
-		_actionQueue.execute();
+		execute();
 	}
 	
 	
@@ -169,22 +138,22 @@ class ActionsController_template extends ActionsController
 	{
 		super.finishRound(vo);
 		
-		_actionQueue.add(AHandlePokerDealResponse, vo);
+		add(AHandlePokerDealResponse, vo);
 		
-		_actionQueue.add(ATimeoutAction, 200);
-		_actionQueue.add(AShowPokerHand, vo.result);
+		add(ATimeoutAction, 200);
+		add(AShowPokerHand, vo.result);
 		
-		_actionQueue.add(ATimeoutAction, 500);
+		add(ATimeoutAction, 500);
 		
 		if (vo.state == 0)
 		{
-			_actionQueue.add(ASetWinAmount, vo.winAmount);
+			add(ASetWinAmount, vo.winAmount);
 		}
 		
-		_actionQueue.add(AEnableButtons);
+		add(AEnableButtons);
 		
 		
 		
-		_actionQueue.execute();
+		execute();
 	}
 }

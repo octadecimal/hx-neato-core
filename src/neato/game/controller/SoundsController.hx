@@ -40,8 +40,6 @@ class SoundsController extends Controller implements ISoundsController
 	
 	private function onCardChanged(params:DynamicExt):Void
 	{
-		trace("Wow: " + params);
-		
 		var options:HowlOptions = {};
 		options.src = ["assets/desktop/contexts/poker/sounds/click-basic.wav"];
 		options.autoplay = true;
@@ -54,7 +52,8 @@ class SoundsController extends Controller implements ISoundsController
 	{
 		var options:HowlOptions = {};
 		options.src = ["assets/desktop/contexts/poker/sounds/click.wav"];
-		options.autoplay = true;
+		options.autoplay = false;
+		options.onload = function () { trace("WOW"); };
 		
 		var snd = new Howl(options);
 		snd.play();

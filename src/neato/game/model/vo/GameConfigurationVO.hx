@@ -9,7 +9,7 @@ import neato.api.game.controller.IIntegrationController;
 import neato.api.game.controller.ILoadingController;
 import neato.api.game.controller.ISoundsController;
 import neato.api.game.extensions.IExtension;
-import neato.api.game.extensions.IExtensionManager;
+import neato.api.game.extensions.IExtensionsManager;
 import neato.api.game.notifications.INotificationManager;
 import neato.core.integration.Integrator;
 import neato.game.controller.ActionsController;
@@ -17,7 +17,7 @@ import neato.game.controller.GameController;
 import neato.game.controller.IntegrationController;
 import neato.game.controller.LoadingController;
 import neato.game.controller.SoundsController;
-import neato.game.extensions.ExtensionManager;
+import neato.game.extensions.ExtensionsManager;
 import neato.game.notifications.NotificationManager;
 import neato.game.view.GameSkin;
 import neato.game.view.GameView;
@@ -32,7 +32,7 @@ class GameConfigurationVO
 	public var skin:Class<IGameSkin>;
 	public var controller:Class<IGameController>;
 	
-	public var extensionManager:Class<IExtensionManager>;
+	public var extensionManager:Class<IExtensionsManager>;
 	public var notificationManager:Class<INotificationManager>;
 	
 	public var actions:Class<IActionsController>;
@@ -55,7 +55,7 @@ class GameConfigurationVO
 		view = GameView;
 		skin = GameSkin;
 		controller = GameController;
-		extensionManager = ExtensionManager;
+		extensionManager = ExtensionsManager;
 		notificationManager = NotificationManager;
 		actions = ActionsController;
 		loading = LoadingController;

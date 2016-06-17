@@ -12,7 +12,7 @@ import neato.api.game.controller.IIntegrationController;
 import neato.api.game.controller.ILoadingController;
 import neato.api.game.controller.ISoundsController;
 import neato.api.game.extensions.IExtension;
-import neato.api.game.extensions.IExtensionManager;
+import neato.api.game.extensions.IExtensionsManager;
 import neato.api.game.notifications.INotificationManager;
 import neato.game.model.vo.GameConfigurationVO;
 
@@ -49,7 +49,7 @@ class GameEntry implements IGameEntry
 		var skin:IGameSkin = Type.createInstance(config.skin, []);
 		
 		// Extension Manager
-		var extensionManager:IExtensionManager = Type.createInstance(config.extensionManager, []);
+		var extensionManager:IExtensionsManager = Type.createInstance(config.extensionManager, []);
 		
 		// Notification Manager
 		var notificationManager:INotificationManager = Type.createInstance(config.notificationManager, []);

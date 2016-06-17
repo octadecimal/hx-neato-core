@@ -69,11 +69,8 @@ class LoaderQueue
 	// HANDLERS
 	//============================================================================================================
 	
-	function onFileLoaded(resource:Resource):Void
+	private function onFileLoaded(resource:Resource):Void
 	{
-		//trace("LOADED: " + resource.name);
-		//trace(resource.data);
-		
 		if (resource.isImage)
 		{
 			sigTextureLoaded.dispatch(resource.name, resource.texture);
